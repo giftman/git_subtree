@@ -16,6 +16,7 @@ module.exports = app => {
       data.userInfo = Object.assign({
         city: '广州',
       }, data.userInfo);
+      console.log(data);
       ctx.body = data;
     }
 
