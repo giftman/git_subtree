@@ -11,8 +11,12 @@ module.exports = app => {
     * login() {
       console.log('login');
       const { ctx } = this;
-      const data = yield LoginService.create(ctx.request, ctx.response).login();
-      this.ctx.body = data;
+      const loginService = LoginService.create(ctx.request, ctx.response);
+      const data = yield loginService.login();
+      data.userInfo = Object.assign({
+        city: '广州',
+      }, data.userInfo);
+      ctx.body = data;
     }
 
     * user() {
