@@ -1,5 +1,5 @@
 'use strict';
-require('setup-qcloud-sdk');
+require('./setup-qcloud-sdk');
 const LoginService = require('qcloud-weapp-server-sdk').LoginService;
 
 module.exports = app => {

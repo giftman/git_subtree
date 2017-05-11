@@ -19,7 +19,7 @@ try {
         throw new Error('File not exists.');
     }
 } catch (e) {
-    debug(`SDK 配置文件（${sdkConfig}）不存在`);
+    console.log(`SDK 配置文件（${sdkConfig}）不存在`);
     process.exit(1);
 }
 
@@ -28,7 +28,7 @@ const config = (() => {
         const content = fs.readFileSync(sdkConfig, 'utf8');
         return JSON.parse(content);
     } catch (e) {
-        debug(`SDK 配置文件（${sdkConfig}）内容不合法`);
+        console.log(`SDK 配置文件（${sdkConfig}）内容不合法`);
         process.exit(1);
     }
 })();
@@ -43,4 +43,4 @@ qcloud.config({
 // 网络请求超时时长（单位：毫秒）
 qcloud.config.setNetworkTimeout(config.networkTimeout);
 
-debug('[当前 SDK 使用配置] =>', config);
+console.log('[当前 SDK 使用配置] =>', config);
