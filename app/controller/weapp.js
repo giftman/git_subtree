@@ -1,7 +1,4 @@
 'use strict';
-require('./setup-qcloud-sdk');
-const LoginService = require('qcloud-weapp-server-sdk').LoginService;
-
 module.exports = app => {
   class WeappController extends app.Controller {
     * index() {
@@ -10,21 +7,30 @@ module.exports = app => {
 
     * login() {
       console.log('login');
-      const { ctx } = this;
-      const loginService = LoginService.create(ctx.request, ctx.response);
-      const data = yield loginService.login();
-      data.userInfo = Object.assign({
-        city: '广州',
-      }, data.userInfo);
-      console.log(data);
-      ctx.body = data;
+      const { ctx, app } = this;
+      const loginService = app.weapp.LoginService.create(ctx.request, ctx.response);
+      yield loginService.login()
+        .then(data => {
+          data.userInfo = Object.assign({
+            city: '广州',
+          }, data.userInfo);
+          ctx.body = data;
+        });
     }
 
     * user() {
-      this.ctx.body = 'hi.user';
-      const { ctx } = this;
-      const data = yield LoginService.create(ctx.request, ctx.response).check();
-      this.ctx.body = data;
+      const { ctx, app } = this;
+      const loginService = app.weapp.LoginService.create(ctx.request, ctx.response);
+      yield loginService.check()
+        .then(data => {
+          ctx.body = {
+            code: 0,
+            message: 'ok',
+            data: {
+              userInfo: data.userInfo,
+            },
+          };
+        });
     }
 
     * location() {

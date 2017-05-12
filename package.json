@@ -5,8 +5,9 @@
   "private": true,
   "dependencies": {
     "egg": "^1.1.0",
+    "egg-redis": "^1.0.1",
     "egg-validate": "^1.0.0",
-    "qcloud-weapp-server-sdk": "^0.8.2"
+    "egg-weapp-sdk": "^1.1.1"
   },
   "devDependencies": {
     "autod": "^2.8.0",
