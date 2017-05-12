@@ -14,6 +14,7 @@ module.exports = app => {
           data.userInfo = Object.assign({
             city: '广州',
           }, data.userInfo);
+          console.log(data);
           ctx.body = data;
         });
     }
@@ -34,7 +35,10 @@ module.exports = app => {
     }
 
     * location() {
-      this.ctx.body = 'hi.location';
+      // this.ctx.body = 'hi.location';
+      const { ctx } = this;
+      const city = yield ctx.service.location.create(ctx.query.p);
+      ctx.body = { code: 0, message: 'ok', location: city };
     }
   }
   return WeappController;
