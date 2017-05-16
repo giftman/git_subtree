@@ -27,6 +27,15 @@ module.exports = appInfo => {
     },
   };
 
+  config.sequelize = {
+    dialect: 'mysql', // support: mysql, mariadb, postgres, mssql
+    database: 'tftime',
+    host: 'localhost',
+    port: '3306',
+    username: 'root',
+    password: 'winfan123',
+  };
+
   // replace your appId and appSecret of WEAPP
   config.weappSDK = {
     appId: 'wx5a86a487fb09ab5c',

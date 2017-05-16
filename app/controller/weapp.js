@@ -6,32 +6,31 @@ module.exports = app => {
     }
 
     * login() {
-      console.log('login');
       const { ctx, app } = this;
       const loginService = app.weapp.LoginService.create(ctx.request, ctx.response);
-      yield loginService.login()
-        .then(data => {
-          data.userInfo = Object.assign({
-            city: '广州',
-          }, data.userInfo);
-          console.log(data);
-          ctx.body = data;
-        });
+      const data = yield loginService.login();
+      const userInfo = data.userInfo;
+      const user = yield ctx.service.user.getOauthUser(userInfo, 'WEAPP');
+
+      // const managers = yield ctx.model.models.school_managers.findAll({
+      //   attributes: { exclude: ['createdAt', 'updatedAt'] },
+      //   where: {
+      //     userId: user.id,
+      //   },
+      // });
+      data.userInfo = Object.assign({
+        id: user.id,
+        name: user.name,
+        avatar: user.avatar,
+        // inChargeOf: managers.map(item => item.schoolId),
+      }, data.userInfo);
+      ctx.body = data;
     }
 
     * user() {
-      const { ctx, app } = this;
-      const loginService = app.weapp.LoginService.create(ctx.request, ctx.response);
-      yield loginService.check()
-        .then(data => {
-          ctx.body = {
-            code: 0,
-            message: 'ok',
-            data: {
-              userInfo: data.userInfo,
-            },
-          };
-        });
+      const { ctx } = this;
+      const user = yield ctx.service.user.checkWeappUser();
+      ctx.body = { code: 0, msg: 'ok', user };
     }
 
     * location() {
