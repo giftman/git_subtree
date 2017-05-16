@@ -18,7 +18,7 @@ module.exports = app => {
       // 检查调用是否成功，如果调用失败会抛出异常
       this.checkSuccess(result);
       // 返回创建的 topic 的 id
-      return JSON.parse(result.data).result.address_component.city;
+      return result.data.result.address_component.city;
     }
     // 封装统一的调用检查函数，可以在查询、创建和更新等 service 中复用
     checkSuccess(result) {
