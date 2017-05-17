@@ -26,7 +26,7 @@ module.exports = app => {
         return user;
       }
       const user = yield this.models.User.findOne({
-        attributes: ['id', 'name', 'avatar'],
+        attributes: [ 'id', 'name', 'avatar' ],
         where: {
           id: oauth_user.userId,
         },
