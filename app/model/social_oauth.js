@@ -19,6 +19,7 @@ module.exports = app => {
     site_uname: STRING(255),
     access_token: STRING(255),
     refresh_token: STRING(255),
+    userId: STRING(255),
     expire_date: DATE,
   }, {
     indexes: [

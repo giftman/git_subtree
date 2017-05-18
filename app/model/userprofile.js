@@ -17,6 +17,7 @@ module.exports = app => {
     province: STRING(32),
     country: STRING(32),
     about_me: STRING(255),
+    userId: STRING(255),
   }, {
     classMethods: {
       associate() {
