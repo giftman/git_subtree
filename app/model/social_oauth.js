@@ -19,11 +19,11 @@ module.exports = app => {
     site_uname: STRING(255),
     createdAt: {
       type: BIGINT,
-      allowNull: false,
+      allowNull: true,
     },
     updatedAt: {
       type: BIGINT,
-      allowNull: false,
+      allowNull: true,
     },
     access_token: STRING(255),
     refresh_token: STRING(255),
