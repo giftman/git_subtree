@@ -3,7 +3,7 @@
 const bcrypt = require('bcrypt-nodejs');
 
 module.exports = app => {
-  const { STRING, INTEGER, BIGINT } = app.Sequelize;
+  const { STRING, INTEGER } = app.Sequelize;
 
   const User = app.model.define('user', {
     name: {
@@ -25,14 +25,6 @@ module.exports = app => {
     is_active: {
       type: INTEGER,
       defaultValue: true,
-    },
-    createdAt: {
-      type: BIGINT,
-      allowNull: false,
-    },
-    updated_at: {
-      type: BIGINT,
-      allowNull: false,
     },
     avatar: {
       type: STRING(255),
