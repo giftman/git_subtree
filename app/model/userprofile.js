@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = app => {
-  const { STRING, INTEGER } = app.Sequelize;
+  const { STRING, INTEGER, BIGINT } = app.Sequelize;
   const SEX_TAG = {
     UNKNOWN: 0,
     MALE: 1,
@@ -17,6 +17,14 @@ module.exports = app => {
     province: STRING(32),
     country: STRING(32),
     about_me: STRING(255),
+    created_at: {
+      type: BIGINT,
+      allowNull: false,
+    },
+    updated_at: {
+      type: BIGINT,
+      allowNull: false,
+    },
   }, {
     classMethods: {
       associate() {

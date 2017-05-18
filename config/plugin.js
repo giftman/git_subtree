@@ -18,3 +18,7 @@ exports.weappSDK = {
   package: 'egg-weapp-sdk',
 };
 
+exports.sequelize = {
+  enable: true,
+  package: 'egg-sequelize',
+};

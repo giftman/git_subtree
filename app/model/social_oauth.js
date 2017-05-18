@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = app => {
-  const { STRING, DATE } = app.Sequelize;
+  const { STRING, DATE, BIGINT } = app.Sequelize;
 
   const SITE_NAME = {
     WEAPP: 'WEAPP',
@@ -17,17 +17,24 @@ module.exports = app => {
     site_uid: STRING(255),
     unionid: STRING(255),
     site_uname: STRING(255),
-
+    created_at: {
+      type: BIGINT,
+      allowNull: false,
+    },
+    updated_at: {
+      type: BIGINT,
+      allowNull: false,
+    },
     access_token: STRING(255),
     refresh_token: STRING(255),
     expire_date: DATE,
   }, {
     indexes: [
       {
-        fields: ['site_uid'],
+        fields: [ 'site_uid' ],
       },
       {
-        fields: ['unionid'],
+        fields: [ 'unionid' ],
       },
     ],
     classMethods: {
