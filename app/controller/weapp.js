@@ -10,6 +10,7 @@ module.exports = app => {
       const loginService = app.weapp.LoginService.create(ctx.request, ctx.response);
       const data = yield loginService.login();
       const userInfo = data.userInfo;
+      console.log(userInfo);
       const user = yield ctx.service.user.getOauthUser(userInfo, 'WEAPP');
 
       // const managers = yield ctx.model.models.school_managers.findAll({
