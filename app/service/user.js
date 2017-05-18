@@ -40,21 +40,21 @@ module.exports = app => {
         name: userInfo.nickName,
         avatar: userInfo.avatarUrl,
       });
-      const oauth = yield this.models.SocialOauth.create({
-        site,
-        site_uid: userInfo.openId,
-        site_uname: userInfo.nickName,
-        unionid: userInfo.unionId,
-        userId: user.id,
-      });
-      yield this.models.Userprofile.create({
-        sex: userInfo.gender,
-        city: userInfo.city,
-        province: userInfo.province,
-        country: userInfo.country,
-        userId: user.id,
-      });
-      user.oauth = oauth;
+      // const oauth = yield this.models.SocialOauth.create({
+      //   site,
+      //   site_uid: userInfo.openId,
+      //   site_uname: userInfo.nickName,
+      //   unionid: userInfo.unionId,
+      //   userId: user.id,
+      // });
+      // yield this.models.Userprofile.create({
+      //   sex: userInfo.gender,
+      //   city: userInfo.city,
+      //   province: userInfo.province,
+      //   country: userInfo.country,
+      //   userId: user.id,
+      // });
+      // user.oauth = oauth;
       return user;
 
     }
