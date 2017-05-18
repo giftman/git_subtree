@@ -10,7 +10,7 @@
     "egg-sequelize": "^2.1.4",
     "egg-validate": "^1.0.0",
     "egg-weapp-sdk": "^1.1.1",
-    "mocha": "^3.4.1"
+    "bcrypt-nodejs": "0.0.3"
   },
   "devDependencies": {
     "autod": "^2.8.0",
@@ -19,7 +19,8 @@
     "egg-mock": "^3.4.0",
     "eslint": "^3.19.0",
     "eslint-config-egg": "^3.2.0",
-    "webstorm-disable-index": "^1.1.2"
+    "webstorm-disable-index": "^1.1.2",
+    "mocha": "^3.4.1"
   },
   "engines": {
     "node": ">=6.0.0"
