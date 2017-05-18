@@ -38,8 +38,8 @@ CREATE TABLE `social_oauths` (
   `access_token` varchar(255) DEFAULT NULL,
   `refresh_token` varchar(255) DEFAULT NULL,
   `expire_date` datetime DEFAULT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
   `userId` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `userId` (`userId`),
@@ -51,7 +51,7 @@ CREATE TABLE `social_oauths` (
 LOCK TABLES `social_oauths` WRITE;
 /*!40000 ALTER TABLE `social_oauths` DISABLE KEYS */;
 
-INSERT INTO `social_oauths` (`id`, `site`, `site_uid`, `unionid`, `site_uname`, `access_token`, `refresh_token`, `expire_date`, `created_at`, `updated_at`, `userId`)
+INSERT INTO `social_oauths` (`id`, `site`, `site_uid`, `unionid`, `site_uname`, `access_token`, `refresh_token`, `expire_date`, `createdAt`, `updatedAt`, `userId`)
 VALUES
 	(1,'WEAPP',NULL,NULL,NULL,NULL,NULL,NULL,'2017-03-30 03:19:07','2017-03-30 03:19:07',1),
 	(2,'WEAPP','oMrD70ETDcvj6bIdx9ky6fgTp1Ug',NULL,'Shawn',NULL,NULL,NULL,'2017-04-12 05:37:16','2017-04-12 05:37:16',2);
@@ -72,8 +72,8 @@ CREATE TABLE `userprofiles` (
   `province` varchar(32) DEFAULT NULL,
   `country` varchar(32) DEFAULT NULL,
   `about_me` varchar(255) DEFAULT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
   `userId` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `userId` (`userId`),
@@ -83,7 +83,7 @@ CREATE TABLE `userprofiles` (
 LOCK TABLES `userprofiles` WRITE;
 /*!40000 ALTER TABLE `userprofiles` DISABLE KEYS */;
 
-INSERT INTO `userprofiles` (`id`, `sex`, `city`, `province`, `country`, `about_me`, `created_at`, `updated_at`, `userId`)
+INSERT INTO `userprofiles` (`id`, `sex`, `city`, `province`, `country`, `about_me`, `createdAt`, `updatedAt`, `userId`)
 VALUES
 	(1,0,NULL,NULL,NULL,NULL,'2017-03-30 03:19:07','2017-03-30 03:19:07',1),
 	(2,1,'Shenzhen','Guangdong','CN',NULL,'2017-04-12 05:37:16','2017-04-12 05:37:16',2);
@@ -104,8 +104,8 @@ CREATE TABLE `users` (
   `password` varchar(60) DEFAULT NULL,
   `avatar` varchar(255) DEFAULT NULL,
   `is_active` int(11) DEFAULT '1',
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `users_name` (`name`),
   KEY `users_email` (`email`)
@@ -114,7 +114,7 @@ CREATE TABLE `users` (
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `avatar`, `is_active`, `created_at`, `updated_at`)
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `avatar`, `is_active`, `createdAt`, `updatedAt`)
 VALUES
 	(1,'seasonstar','seasonstar@126.com','$2a$10$rDyURQ4pgcnVE4p3Ba8EWeHeKDOGKfJcCs4VIBb78WYGmNxnaiBzi','http://tva3.sinaimg.cn/crop.0.0.180.180.180/9e0f6abcjw1e8qgp5bmzyj2050050aa8.jpg',1,'2017-03-30 03:13:58','2017-03-30 03:13:58'),
 	(2,'Shawn',NULL,'$2a$10$UqRtZzctxQW9DjWLzNjAh.gI5AwVMSDWPBRhBSukubpV1F/98iBOe','http://wx.qlogo.cn/mmopen/vi_32/SHTqNNVB9mbibgEYialHROjsty1G9fYCPYK5fYBDB1TibrHVZKgJQn0Hbo93bOwiaD1TMFK1Vo4x4WynPcfAmc12fg/0',1,'2017-04-12 05:37:16','2017-04-12 05:37:16');

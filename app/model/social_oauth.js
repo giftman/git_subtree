@@ -21,7 +21,7 @@ module.exports = app => {
       type: BIGINT,
       allowNull: false,
     },
-    updated_at: {
+    updatedAt: {
       type: BIGINT,
       allowNull: false,
     },

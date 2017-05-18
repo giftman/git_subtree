@@ -17,11 +17,11 @@ module.exports = app => {
     province: STRING(32),
     country: STRING(32),
     about_me: STRING(255),
-    created_at: {
+    createdAt: {
       type: BIGINT,
       allowNull: false,
     },
-    updated_at: {
+    updatedAt: {
       type: BIGINT,
       allowNull: false,
     },

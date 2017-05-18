@@ -26,7 +26,7 @@ module.exports = app => {
       type: INTEGER,
       defaultValue: true,
     },
-    created_at: {
+    createdAt: {
       type: BIGINT,
       allowNull: false,
     },
