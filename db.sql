@@ -41,6 +41,7 @@ CREATE TABLE `social_oauths` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `userId` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `userId` (`userId`),
   KEY `social_oauths_site_uid` (`site_uid`),
